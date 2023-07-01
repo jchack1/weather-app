@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Urbanist:wght@300;500&display=swap");
+
 * {
   box-sizing: border-box;
 }
@@ -10,44 +12,63 @@ body {
 
 body {
   color: white;
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
-}
-
-img {
-  width: 10rem;
-}
-
-.location-container,
-.time-container {
-  font-size: 1rem;
-}
-
-.container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 0 auto;
-  flex-direction: column;
+  font-family: "Urbanist", sans-serif;
 }
 
 .daylight {
   background: rgb(8, 54, 204);
-  background: linear-gradient(
-    28deg,
-    rgba(8, 54, 204, 1) 0%,
-    rgba(17, 206, 255, 1) 62%,
-    rgba(252, 250, 69, 1) 100%
-  );
-  height: 100vh;
+
+  background-image: linear-gradient(
+      50deg,
+      rgba(8, 54, 204, 0.8) 0%,
+      rgba(17, 206, 255, 0.7) 70%,
+      rgba(252, 250, 69, 0.45) 100%
+    ),
+    url(/assets/carlos-torres-MHNjEBeLTgw-unsplash.jpg);
 }
 
 .nighttime {
   background: rgb(20, 67, 120);
-  background: linear-gradient(
-    122deg,
-    rgba(20, 67, 120, 1) 8%,
-    rgba(18, 0, 68, 1) 51%,
-    rgba(61, 30, 116, 1) 95%
-  );
-  height: 100vh;
+
+  background-image: linear-gradient(
+      130deg,
+      rgba(9, 48, 93, 0.85) 8%,
+      rgba(18, 0, 68, 0.85) 40%,
+      rgba(51, 20, 105, 0.85) 100%
+    ),
+    url(/assets/carlos-torres-MHNjEBeLTgw-unsplash.jpg);
+}
+
+.loading-icon {
+  animation-name: spin;
+  animation-duration: 8000ms;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+
+  width: 150px;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.fade-in {
+  opacity: 0;
+  animation: fadeIn ease-in 0.8s;
+  animation-fill-mode: forwards;
+  animation-delay: 0.3s;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
