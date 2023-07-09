@@ -187,8 +187,6 @@ function App() {
     });
   }, []);
 
-  // need loading icon
-
   if (apiError) {
     return <PageContainer className={daylight ? "daylight" : "nighttime"} />;
   }
@@ -218,12 +216,8 @@ function App() {
       <h1 className="fade-in">{locationName}</h1>
 
       <WeatherTempContainer className="fade-in">
-        <WeatherContainer>
-          <WeatherImg
-            src={icon}
-            alt={`${weatherMain} icon`}
-            daylight={daylight}
-          />
+        <WeatherContainer daylight={daylight}>
+          <WeatherImg src={icon} alt={`${weatherMain} icon`} />
         </WeatherContainer>
 
         <TempContainer className="fade-in">
