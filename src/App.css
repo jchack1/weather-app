@@ -15,6 +15,10 @@ body {
   font-family: "Urbanist", sans-serif;
 }
 
+.background {
+  background-image: url(/assets/carlos-torres-MHNjEBeLTgw-unsplash.jpg);
+}
+
 .daylight {
   background: rgb(8, 54, 204);
 
@@ -35,6 +39,28 @@ body {
       rgba(9, 48, 93, 0.85) 8%,
       rgba(18, 0, 68, 0.85) 40%,
       rgba(51, 20, 105, 0.85) 100%
+    ),
+    url(/assets/carlos-torres-MHNjEBeLTgw-unsplash.jpg);
+}
+
+.hot {
+  background: rgb(251, 135, 97);
+  background-image: linear-gradient(
+      36deg,
+      rgba(251, 135, 97, 0.8) 10%,
+      rgba(238, 207, 31, 0.85) 55%,
+      rgba(255, 184, 30, 0.7) 95%
+    ),
+    url(/assets/carlos-torres-MHNjEBeLTgw-unsplash.jpg);
+}
+
+.cold {
+  background: rgb(126, 193, 254);
+  background: linear-gradient(
+      36deg,
+      rgba(152, 205, 255, 0.85) 10%,
+      rgba(99, 214, 209, 0.85) 50%,
+      rgba(223, 224, 255, 0.7) 95%
     ),
     url(/assets/carlos-torres-MHNjEBeLTgw-unsplash.jpg);
 }

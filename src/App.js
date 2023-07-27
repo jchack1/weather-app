@@ -162,6 +162,26 @@ function App() {
     }
   };
 
+  const getBackgroundClass = (daylight, temperature, currentIsCelsius) => {
+    let temp = currentIsCelsius
+      ? temperature
+      : Math.round((temperature - 32) / 1.8);
+
+    if (!daylight) {
+      return "nighttime";
+    }
+
+    if (temp > 27) {
+      return "hot";
+    }
+
+    if (temp < -5) {
+      return "cold";
+    }
+
+    return "daylight";
+  };
+
   useEffect(() => {
     navigator.geolocation.getCurrentPosition(async function (position) {
       updateLoading(true);
@@ -178,6 +198,7 @@ function App() {
       updateDaylight(() =>
         handleDetermineDaylight(data.sys.sunrise, data.sys.sunset, data.dt)
       );
+
       updateWeatherMain(data.weather[0].main);
       updateTemperature(Math.round(data.main.temp));
       updateWeatherDescription(data.weather[0].description);
@@ -188,12 +209,12 @@ function App() {
   }, []);
 
   if (apiError) {
-    return <PageContainer className={daylight ? "daylight" : "nighttime"} />;
+    return <PageContainer className="daylight" />;
   }
 
   if (locationName.length === 0 && !loading) {
     return (
-      <PageContainer className={daylight ? "daylight" : "nighttime"}>
+      <PageContainer className="daylight">
         <h1 className="fade-in">your local weather</h1>
 
         <p className="fade-in">
@@ -205,14 +226,16 @@ function App() {
 
   if (loading) {
     return (
-      <PageContainer className={daylight ? "daylight" : "nighttime"}>
+      <PageContainer className="daylight">
         <LoadingIcon />
       </PageContainer>
     );
   }
 
   return (
-    <PageContainer className={daylight ? "daylight" : "nighttime"}>
+    <PageContainer
+      className={getBackgroundClass(daylight, temperature, isCelsius)}
+    >
       <h1 className="fade-in">{locationName}</h1>
 
       <WeatherTempContainer className="fade-in">
